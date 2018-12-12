@@ -10,12 +10,12 @@ mat-sidenav {
     min-width: 250px;
 }
 
-mat-list-item.received {
+mat-card.received {
     text-align: left;
     color: blue;
 }
 
-mat-list-item.sent {
+mat-card.sent {
     text-align: right;
     color: red;
 }

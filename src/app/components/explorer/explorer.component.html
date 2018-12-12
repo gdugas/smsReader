@@ -24,18 +24,20 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <mat-list dense>
-      <mat-list-item *ngFor="let message of messages$ | async" [class.received]="message.direction === 'received'"
+    <div>
+      <mat-card *ngFor="let message of messages$ | async" [class.received]="message.direction === 'received'"
         [class.sent]="message.direction === 'sent'">
-        <p *ngIf="message.direction === 'sent'" matLine><em>Moi, le {{message.date}}</em></p>
-        <p *ngIf="message.direction === 'received'" matLine><em>De {{message.from}}, le {{message.date}}</em></p>
-        <p matLine>{{message.content}}</p>
-        <!-- 
+        <mat-card-content>
+          <p *ngIf="message.direction === 'sent'" matLine><em>Moi, le {{message.date}}</em></p>
+          <p *ngIf="message.direction === 'received'" matLine><em>De {{message.from}}, le {{message.date}}</em></p>
+          <p matLine>{{message.content}}</p>
+          <!-- 
         <div matLine *ngFor="let at of message?.attachments">
           <img [style.max-height.px]="400" [src]="trustUrl('data:' + at.content_type + ';base64,' + at.text)">
         </div>
         -->
-      </mat-list-item>
-    </mat-list>
+        </mat-card-content>
+      </mat-card>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
