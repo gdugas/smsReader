@@ -1,0 +1,35 @@
+mat-sidenav-container {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    bottom: 0;
+    right:0;
+}
+
+mat-sidenav {
+    min-width: 250px;
+}
+
+mat-list-item.received {
+    text-align: left;
+    color: blue;
+}
+
+mat-list-item.sent {
+    text-align: right;
+    color: red;
+}
+
+.toolbar-empty-center {
+    flex: 1 1 auto;
+}
+
+.search-form {
+    display: inline-block;
+    width: 250px;
+}
+
+  
+.search-container > * {
+  width: 100%;
+}

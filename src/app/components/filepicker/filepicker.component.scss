@@ -1,0 +1,19 @@
+:host, .wrapper {
+    position: relative;
+    display: block;
+    height: 100%;
+}
+
+.dropbox {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border: 3px dashed #aaa;
+    border-radius: 5px;
+}
+
+.dropbox label {
+    position: absolute;
+    display: block;
+    top: 0; left: 0; right: 0; bottom: 0;
+    cursor: pointer;
+}

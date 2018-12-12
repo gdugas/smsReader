@@ -1,0 +1,41 @@
+<mat-toolbar color="primary">
+  <span>Sms Reader</span>
+  <span class="toolbar-empty-center"></span>
+  <!--
+  <span class="search-form">
+    <mat-form-field>
+      <input matInput (keyup)="doFilter($event)" placeholder="Search">
+    </mat-form-field>
+  </span>
+  -->
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav mode="side" opened>
+    <ng-container *ngFor="let contact of contacts$ | async">
+      <mat-card>
+        <a (click)="selectContact($event, contact)" href="#">
+          <span *ngIf="contact.name !== '(Unknown)'">{{contact.name}}</span>
+          <span *ngIf="contact.name === '(Unknown)'">{{contact.phone_number}}</span>
+        </a>
+      </mat-card>
+      <mat-divider></mat-divider>
+    </ng-container>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-list dense>
+      <mat-list-item *ngFor="let message of messages$ | async" [class.received]="message.direction === 'received'"
+        [class.sent]="message.direction === 'sent'">
+        <p *ngIf="message.direction === 'sent'" matLine><em>Moi, le {{message.date}}</em></p>
+        <p *ngIf="message.direction === 'received'" matLine><em>De {{message.from}}, le {{message.date}}</em></p>
+        <p matLine>{{message.content}}</p>
+        <!-- 
+        <div matLine *ngFor="let at of message?.attachments">
+          <img [style.max-height.px]="400" [src]="trustUrl('data:' + at.content_type + ';base64,' + at.text)">
+        </div>
+        -->
+      </mat-list-item>
+    </mat-list>
+  </mat-sidenav-content>
+</mat-sidenav-container>
